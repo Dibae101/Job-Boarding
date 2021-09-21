@@ -1,0 +1,23 @@
+{% extends 'designer/base.html' %}
+
+{% block content %}
+
+<div class="container bg-light col-6 text-center">
+    <h1>Tag your Project</h1>
+    {% include 'includes/alerts.html' %}
+    <form action="{% url 'project-tags' project_id %}" method="POST">
+        {% csrf_token %}
+        {% include 'includes/alerts.html' %}
+        {{ form }}
+        {{ form.non_field_errors }}
+        {{ form.errors }}
+        <p></p>
+      <button class="btn btn-primary btn-block" type="submit">Submit me</button>
+      <p></p>
+      
+    </form>
+    
+</div>
+
+
+{% endblock %}

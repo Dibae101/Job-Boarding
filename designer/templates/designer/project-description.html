@@ -1,0 +1,112 @@
+{% extends 'designer/base.html' %}
+{% block content %}
+
+    <div class="container bg-light col-9">
+        <div class="row">
+            <h1 class="text-center">Add your project</h1>
+        </div>
+        {% include 'includes/alerts.html' %}
+        <form action="{% url 'project-description'  %}" method="POST">
+            {% csrf_token %}
+        <div class="row">
+            
+            <div class="col-md-6 col-sm-12">
+                <h4 class="description-title">Project Name</h4>
+                <div class="description-box">
+                    <div class="card-header">
+                        <h5>Write your project name.</h5>
+                            {{ form.project_name }}
+                            
+                    </div>
+                </div>  
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <h4 class="description-title">Project Link</h4>
+                <div class="description-box">
+                    <div class="card-header">
+                        <h5>Give your project link</h5>
+                            {{ form.project_link }}
+                            
+                    </div>
+                </div>  
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <h4 class="description-title">Project Description</h4>
+                <div class="description-box">
+                    <div class="card-header">
+                        <h5>Give your project desscription(200 characters)</h5>
+                            {{ form.project_description }}
+                            
+                    </div>
+                </div>  
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <h4 class="description-title">Problem</h4>
+                <div class="description-box">
+                    <div class="card-header">
+                        <h5>What problem are you solving?</h5>
+                            {{ form.problem }}
+                            
+                    </div>
+                </div>  
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <h4 class="description-title">Project Scope</h4>
+                <div class="description-box">
+                    <div class="card-header">
+                        <h5>What is the scope of the project?</h5>
+                            {{form.scope}}
+                            
+                    </div>
+                </div>  
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <h4 class="description-title">Target Audience</h4>
+                <div class="description-box">
+                    <div class="card-header">
+                        <h5>Who are you designing it for?</h5>
+                            {{form.audience}}
+                    </div>
+                </div>  
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <h4 class="description-title">Ideation</h4>
+                <div class="description-box">
+                    <div class="card-header">
+                        <h5>List out your initial ideas for the problem</h5>
+                            {{form.ideation}}
+                    </div>
+                </div>  
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <h4 class="description-title">UX Research</h4>
+                <div class="description-box">
+                    <div class="card-header">
+                        <h5>Who are your competitors?</h5>
+                            {{form.competitors}}
+                    </div>
+                </div>  
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <h4 class="description-title">Challenges</h4>
+                <div class="description-box">
+                    <div class="card-header">
+                        <h5>List our 3 challenges you faced while working on this project</h5>
+                            {{form.challenges}}
+                    
+                    </div>
+                </div>  
+            </div>
+            
+        </div>
+        <div class="row">
+            <div class="col-md-6  offset-5">
+                <button name="user" class="btn btn-primary" type="submit" value="{{ request.user }}">Add Description</button>
+            </div>
+        </div>
+    </form>
+    {{ form.non_field_errors }}
+    {{ form.errors }}
+    </div>
+
+{% endblock %}

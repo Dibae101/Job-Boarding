@@ -1,0 +1,341 @@
+*, *::after, *::before {
+    box-sizing:border-box;
+  }
+  
+  body {
+    margin: 10;
+    padding: 10;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  }
+  body a {
+    text-decoration: none;
+    font-weight: 500;
+  }
+  body ul, body li {
+    text-decoration: none;
+    list-style: none;
+  }
+  body h1, body h2, body h3, body h4, body p, body h5, body h6 {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .logo {
+    background: #F2F7FF;
+    height: 100%;
+    color: #000;
+    font-size: 28px;
+    width: 236px;
+    display: grid;
+    place-content: center;
+  }
+  .logo a {
+    color: #000;
+  }
+  .logo svg {
+    height: 20px;
+    fill: #8E79FD;
+  }
+  
+  header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+  
+  .nav {
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #0D193E;
+  }
+  
+  .nav-items {
+    margin-right: 3rem;
+    color: #fff;
+  }
+  .nav-items ul {
+    display: flex;
+    gap: 5rem;
+  }
+  .nav-items ul li {
+    font-size: 14px;
+  }
+  .nav-items ul li a {
+    color: #fff;
+  }
+  .nav-items ul li a:active {
+    color: #00008b;
+  }
+  .nav-items ul li a:hover {
+    color: #8D79FD;
+  }
+  .nav-items ul li a:focus {
+    color: #8D79FD;
+  }
+  
+  .nav-items ul li .active-link {
+    color: #00008b;
+  }
+  
+  footer {
+    background-color: #0D193E;
+    padding: 1.6rem 0;
+    display: grid;
+    place-content: center;
+  }
+  footer .icons-wrapper {
+    display: grid;
+    place-content: center;
+  }
+  footer .icons-wrapper ul {
+    display: flex;
+    gap: 1rem;
+  }
+  footer .copyright {
+    color: #615CC5;
+    line-height: 1.5em;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 400;
+  }
+  
+  :root {
+    --light-purple: #091153;
+    --text-color-dark:#050505;
+    --dark-blue: #0B2151;
+    --purple-dashboard: #091153;
+  }
+  
+  .dashboard-main {
+    
+    background-color: var(--dark-blue);
+  }
+  .dashboard-main .dashboard {
+    max-width: 100%;
+    width: 100%;
+    margin: 0 auto;
+    background: var(--purple-dashboard);
+  }
+  .dashboard-main .dashboard nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 2.5rem;
+  }
+  .dashboard-main .dashboard nav .nav__link-wrapper ul {
+    
+    display: flex;
+    gap: 2.5rem;
+  }
+  .dashboard-main .dashboard nav .nav__link-wrapper ul li a {
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: #fff;
+  }
+  .dashboard-main .dashboard nav .nav__profile-wrapper {
+    height: 25px;
+    width: 25px;
+    overflow: hidden;
+    border-radius: 50%;
+    display: grid;
+    place-content: center;
+    margin-right: 15px;
+  }
+  .dashboard-main .dashboard nav .nav__profile-wrapper img {
+    -o-object-fit: cover;
+       object-fit: cover;
+    width: 100%;
+  }
+  
+  .dashboard {
+    height: 90vh;
+    margin: 10px;
+    overflow-y: scroll;
+    scrollbar-width: none;
+  }
+  .dashboard::-webkit-scrollbar {
+    display: none;
+  }
+  .dashboard .container {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+  }
+  .dashboard .container .side-info {
+    background-color: #EDEAFD;
+  }
+  .dashboard .container .side-info .sideinfo-btn {
+    font-size: 0.6rem;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+  }
+  .dashboard .container .side-info .search-wrapper {
+    padding: 0 1.2rem;
+    margin: 1rem 0;
+  }
+  .dashboard .container .side-info .search-wrapper .search-title {
+    font-weight: 400;
+    font-size: 0.8rem;
+  }
+  .dashboard .container .side-info .search-wrapper .search-input-wrapper {
+    margin-top: 0.8rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .dashboard .container .side-info .search-wrapper .search-input-wrapper .search-input {
+    max-width: 135px;
+    height: 30px;
+    padding: 0 5px;
+    border: 1px solid var(--purple-dashboard);
+    display: flex;
+    align-items: center;
+  }
+  .dashboard .container .side-info .search-wrapper .search-input-wrapper .search-input .search-icon {
+    height: 15px;
+    width: 15px;
+  }
+  .dashboard .container .side-info .search-wrapper .search-input-wrapper .search-input input {
+    flex: 1;
+    width: 85%;
+    border: none;
+    background-color: transparent;
+  }
+  .dashboard .container .side-info .search-wrapper .search-input-wrapper .search-input input:focus {
+    outline: none;
+  }
+  .dashboard .container .side-info .filter-wrapper {
+    --border-color: #242426;
+    --border-color-light-purple:#00008b;
+    padding: 1.5rem 1.2rem;
+    border-bottom: 2px solid var(--border-color);
+  }
+  .dashboard .container .side-info .flex-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  .dashboard .container .side-info .tag-button-container {
+    display: flex;
+  }
+  .dashboard .container .side-info .tag-button-container .add-btn {
+    margin-top: 0.8rem;
+    font-size: 1.8rem;
+    padding: 0;
+    border: none;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    cursor: pointer;
+  }
+  .dashboard .container .side-info .filter__tag-wrapper {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 0.8rem;
+  }
+  .dashboard .container .side-info .filter__tag-wrapper .filter__tag {
+    padding: 0.6rem;
+    border: 1px solid var(--border-color-light-purple);
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: var(--purple-dashboard);
+  }
+  .dashboard .container .profile-list-wrapper {
+    background-color: #fff;
+  }
+  .dashboard .container .profile-list-wrapper .profile__card {
+    display: grid;
+    padding: 1.5rem;
+    row-gap: 20px;
+    -moz-column-gap: 25px;
+         column-gap: 25px;
+    grid-template-columns: 90px repeat(2, 1fr) 100px;
+    grid-template-areas: "s m m e" "s1 m1 m1 e1" "s2 m2 m2 e2" "s3 m3 m3 e3 ";
+  }
+  .dashboard .container .profile-list-wrapper .profile__card .name-wrapper {
+    padding-left: 0.5rem;
+  }
+  .dashboard .container .profile-list-wrapper .profile__card .name-wrapper .profile__name {
+    margin-left: -0.5rem;
+    font-size: 1.3rem;
+    font-weight: 500;
+  }
+  .dashboard .container .profile-list-wrapper .profile__card .name-wrapper .current-post {
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-top: 0.5rem;
+  }
+  .dashboard .container .profile-list-wrapper .profile__card .name-wrapper .experience {
+    font-size: 0.8rem;
+    font-weight: 400;
+    margin-top: 0.5rem;
+  }
+  .dashboard .container .profile-list-wrapper .profile__card .img-wrapper {
+    margin: 0 auto;
+    grid-area: s;
+    height: 64px;
+    width: 64px;
+    overflow: hidden;
+    border-radius: 50%;
+    display: grid;
+    place-content: center;
+  }
+  .dashboard .container .profile-list-wrapper .profile__card .img-wrapper img {
+    width: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  .dashboard .container .profile-list-wrapper .profile__card .profile__title {
+    padding-left: 1rem;
+    font-size: 0.8rem;
+    font-weight: 400;
+  }
+  .dashboard .container .profile-list-wrapper .profile__card .profile__val {
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+  .dashboard .container .profile-list-wrapper .profile__card .s1 {
+    grid-area: s1;
+  }
+  .dashboard .container .profile-list-wrapper .profile__card .m1 {
+    grid-area: m1;
+  }
+  .dashboard .container .profile-list-wrapper .profile__card .s2 {
+    grid-area: s2;
+  }
+  .dashboard .container .profile-list-wrapper .profile__card .m2 {
+    grid-area: m2;
+  }
+  .dashboard .container .profile-list-wrapper .profile__card .s3 {
+    grid-area: s3;
+  }
+  .dashboard .container .profile-list-wrapper .profile__card .m3 {
+    grid-area: m3;
+  }
+  .dashboard .container .profile-list-wrapper .profile__card .e3 {
+    grid-area: e3;
+  }
+  .dashboard .container .profile-list-wrapper .profile__card .skills-wrapper {
+    display: flex;
+    gap: 1rem;
+    --light-gray: #686868;
+  }
+  .dashboard .container .profile-list-wrapper .profile__card .skills-wrapper .skills-tag {
+    border: 1px solid var(--light-gray);
+    padding: 0.3rem 1rem;
+    border-radius: 1.5rem;
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: var(--light-gray);
+  }
+  .dashboard .container .profile-list-wrapper .profile__card .profile__cta {
+    border: none;
+    background-color: #0D193E;
+    border-radius: 1rem;
+    color: #fff;
+    cursor: pointer;
+  }/*# sourceMappingURL=dashboard.css.map */

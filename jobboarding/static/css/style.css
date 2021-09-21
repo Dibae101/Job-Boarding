@@ -1,0 +1,238 @@
+*, *::after, *::before {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  --light-purple: #8D79FD;
+  --text-color-dark:#2F2E2E;
+}
+body a {
+  text-decoration: none;
+  font-weight: 500;
+}
+body ul, body li {
+  text-decoration: none;
+  list-style: none;
+}
+body h1, body h2, body h3, body h4, body p {
+  margin: 0;
+  padding: 0;
+}
+
+.logo {
+  background: #F2F7FF;
+  height: 100%;
+  color: #000;
+  font-size: 28px;
+  width: 236px;
+  display: grid;
+  place-content: center;
+}
+.logo a {
+  color: #000;
+}
+.logo svg {
+  height: 20px;
+  fill: #8E79FD;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.nav {
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #0D193E;
+}
+
+.nav-items {
+  margin-right: 3rem;
+  color: #fff;
+}
+.nav-items ul {
+  display: flex;
+  gap: 5rem;
+}
+.nav-items ul li {
+  font-size: 14px;
+}
+.nav-items ul li a {
+  color: #fff;
+}
+.nav-items ul li a:active {
+  color: #8D79FD;
+}
+.nav-items ul li a:hover {
+  color: #8D79FD;
+}
+.nav-items ul li a:focus {
+  color: #8D79FD;
+}
+
+.nav-items ul li .active-link {
+  color: var(--light-purple);
+}
+
+.hero {
+  margin-top: 80px;
+  background-image: url("/images/home/test-gif.webp");
+  /* Set a specific height */
+  min-height: 100vh;
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  display: grid;
+  justify-content: center;
+}
+.hero::before {
+  content: "";
+  background-color: #0c183eb4;
+  position: absolute;
+  inset: 0;
+}
+
+.hero__content {
+  position: relative;
+}
+
+.hero__text-container {
+  color: #fff;
+  margin-top: 4rem;
+  max-width: 708px;
+  text-align: center;
+}
+.hero__text-container h1 {
+  line-height: 1.2em;
+  text-align: center;
+  font-size: 55px;
+  font-weight: 600;
+}
+.hero__text-container h3 {
+  margin-top: 1rem;
+  font-size: 18px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.hero__image {
+  margin-top: 1.5rem;
+  margin-bottom: -9rem;
+  box-shadow: 0px 3px 9px 0px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0px 3px 9px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 3px 9px 0px rgba(0, 0, 0, 0.75);
+}
+.hero__image img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+}
+
+.about {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(288px, 1fr));
+  place-content: center;
+  gap: 3rem;
+  max-width: 1000px;
+  margin: 15rem auto 0 auto;
+  padding-bottom: 3rem;
+}
+.about .about__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.about .about__card .about__title {
+  margin-top: 1rem;
+  font-size: 20px;
+  color: #ffffff;
+}
+.about .about__card .about__desc {
+  text-align: center;
+  padding: 1rem;
+  color: #ffffff;
+  line-height: 1.7em;
+  font-size: 16px;
+}
+.about .about__svg {
+  width: 2.4rem;
+  fill: var(--light-purple);
+}
+
+.work__title {
+  text-align: center;
+  font-size: 40px;
+  color: var(--text-color-dark);
+}
+
+.work-info {
+  background-color: #F2F7FF;
+  padding: 5rem 0 8rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.work-info .work__card {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr) 1fr);
+  grid-template-areas: "col1 col2";
+  margin-top: 5rem;
+  max-width: 760px;
+  gap: 2rem;
+}
+.work-info .work__card .col1 {
+  grid-area: col1;
+}
+.work-info .work__card .col2 {
+  grid-area: col2;
+}
+.work-info .work__text-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.work-info .work__text-wrapper .work__card__title {
+  font-size: 40px;
+  color: var(--text-color-dark);
+}
+.work-info .work__text-wrapper .work__card__desc {
+  margin-top: 1rem;
+  line-height: 2em;
+  font-size: 16px;
+  color: #605e5e;
+  font-weight: 300;
+}
+
+footer {
+  background-color: #0B2151;
+  padding: 1.6rem 0;
+  display: grid;
+  place-content: center;
+}
+footer .icons-wrapper {
+  display: grid;
+  place-content: center;
+}
+footer .icons-wrapper ul {
+  display: flex;
+  gap: 1rem;
+}
+footer .copyright {
+  color: #615CC5;
+  line-height: 1.5em;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+}/*# sourceMappingURL=style.css.map */

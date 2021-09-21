@@ -1,0 +1,36 @@
+{% extends 'designer/base.html' %}
+
+{% block content %}
+
+
+    <div class="container  border bg-light py-5 col-9">
+        <form action="{% url 'designer-experience' %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <!-- {{ form }} -->
+            
+            <div class="row form-group col-6 offset-3">
+                <div class="row text-center">
+                    <h1>Add Your Experience</h1>
+                </div>
+                {% include 'includes/alerts.html' %}
+                {% for field in form %}
+                  <div class="fieldWrapper">
+                    
+                      {{ field.errors }}
+                      {{ field.label_tag }} {{ field }}
+                      {% if field.help_text %}
+                      <p class="help">{{ field.help_text|safe }}</p>
+                      {% endif %}
+                  </div>
+                {% endfor %}
+                <button class="btn btn-primary " type="submit">Add My Experience</button>
+                
+            </div>
+            {{ form.non_field_errors }}
+            {{ form.errors }}
+            
+          </form>
+        
+    </div>
+
+{% endblock %}

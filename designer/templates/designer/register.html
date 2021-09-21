@@ -1,0 +1,82 @@
+{% extends 'designer/base.html' %}
+
+{% block content %}
+
+
+    <div class="container  border bg-light py-5 col-9">
+        <form action="{% url 'designer-register' %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <!-- {{ form }} -->
+            
+            <div class="row form-group col-6 offset-3">
+                <div class="row text-center">
+                    <h1>Create your Ta-Da Profile today</h1>
+                </div>
+                {% include 'includes/alerts.html' %}
+                {% for field in form %}
+                  <div class="fieldWrapper">
+                      {{ field.errors }}
+                      {{ field.label_tag }} {{ field }}
+                      {% if field.help_text %}
+                      <p class="help">{{ field.help_text|safe }}</p>
+                      {% endif %}
+                  </div>
+                {% endfor %}
+                <!-- <div class="row mb-3 ">
+                    <label for="Name" class="form-label">Name</label>
+                    <input   type="text" class="form-control" id="Name" name="full_name" placeholder="Enter your name here">
+                  </div>
+                  <br>
+                  <div class="row mb-3 ">
+                    <label for="location" class="form-label">Location</label>
+                    <input type="text" class="form-control" id="location" name='location' placeholder="Enter your location here">
+                  </div>
+                  <div class="row mb-3 ">
+                    <label for="designer_type" class="form-label">Designer Type</label>
+                    <select  aria-label="Default select example" name="designer_type"> -->
+                        <!-- <option selected>Select one of these values</option> -->
+                        <!-- {{ form.designer_type }} -->
+                        
+                        <!-- {% for designer in form.designer_type %}
+                                <option name ="designer_type" value="{{ designer }}">{{ designer }}</option>
+                        {% endfor %}
+                      </select>
+                      
+                     
+
+                    </div>
+                  <br>
+                  <div class="row mb-3">
+                      <div class="col-6">
+                        <label for="formFile" class="form-label">Upload your Resume</label>
+                        <input class="form-control"  type="file" id="formFile" name='resume'>
+                      </div>
+                      <div class="col-6">
+                          <p>You can upload your resume so we can automatically build up your profile.</p>
+                      </div>
+                      
+                  </div>
+                  
+
+                  <div class="row mb-3 col-12">
+                    <label for="portfolio" class="form-label">Give your portfolio link</label>
+                    <input class="form-control" type="text" id="portfolio" name='portfolio_link'>
+                </div>-->
+                {% if user.is_profile_completed %}
+                  <button type="submit" class="btn btn-primary">Update my profile</button>
+                {% else %}
+                  <button type="submit" class="btn btn-primary">Create my profile</button>
+                {% endif %}
+                  
+
+                  
+            
+            </div>
+            {{ form.non_field_errors }}
+            {{ form.errors }}
+            
+          </form>
+        
+    </div>
+
+{% endblock %}

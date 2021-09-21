@@ -1,0 +1,181 @@
+{% extends 'designer/base.html' %}
+{% load static %}
+{% block content %}
+<!-- <div style="color:aliceblue">
+
+    <h1>Project Description</h1>
+    <p>
+    {% for desc in project_description %}
+        {{ desc.user }} <br>{{ desc.project_name }} <br>{{ desc.project_link }} <br>{{ desc.problem }}<br> {{ desc.scope }} <br>{{ desc.audience }}<br> {{ desc.ideation }}<br> {{ desc.competitors }} <br>{{ desc.competitors }} <br>{{ desc.challenges }}
+    {% endfor %}
+    </p>
+<br>
+  <p>
+    <h1>Project Tags</h1>
+    {% for tags in project_tags %}
+    {{ tags.user }}<br> {{ tags.project_name }} <br>{{ tags.project_type }} <br>{{ tags.user }} <br>{{ tags.platform_used }} <br>{{ tags.project_stage }} <br>{{ people_collab_with }}
+{% endfor %}
+<br>
+  </p>
+  </div> -->
+<head>
+  <link rel="stylesheet" href="{% static './css/dashboard.css' %}">
+</head>
+<main class='dashboard-main'>
+    <section class="dashboard" style="height: auto; background-color: #0D193E;">
+        <nav>
+            <div class="nav__link-wrapper">
+                <ul>
+                    <li><a href='#'>My jobs</a></li>
+                    <li><a href='#'>Emails</a></li>
+                    <li><a href='#'>Notes</a></li>
+                    <li><a href='#'>Reviews</a></li>
+                    <li><a href='#'>Interviews</a></li>
+                </ul>
+            </div>
+            <div class="nav__profile-wrapper">
+                <img class='nav__profile'
+                    src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80"
+                    alt="user profile">
+            </div>
+        </nav>
+
+        <div class="container" style="max-width: 100%; padding: 0px;">
+            <div class="side-info">
+                <!-- <div class="search-wrapper">
+                    <h4 class="search-title">
+                        Top 10 suited Condidate
+                    </h4>
+                    <div class="search-input-wrapper">
+                        <div class="search-input">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="search-icon" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                            </svg>
+                            <input type="text">
+                        </div>
+                        <button class="btn">Search</button>
+                    </div>
+
+                </div> -->
+                <br>
+                <form method="get" action="/recruiter/search" class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-1" type="search" placeholder="Search" aria-label="Search" name="query" id="query"> 
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+                <div class="filter-wrapper">
+                    <div class="flex-container">
+
+                        <h6 class="filter__job-title">Job title </h6>
+                        <button class="sideinfo-btn">Clear</button>
+                    </div>
+                    <div class="tag-button-container">
+                        <div class="filter__tag-wrapper">
+                            <div class="filter__tag">Web dev</div>
+                            <div class="filter__tag">UI/UX</div>
+                            <div class="filter__tag">Front End engineer </div>
+                        </div>
+                        <button class="add-btn">+</button>
+                    </div>
+
+                </div>
+                <div class="filter-wrapper">
+                    <div class="flex-container">
+
+                        <h6 class="filter__job-title">Top Skills </h6>
+                    </div>
+                    <div class="tag-button-container">
+                        <div class="filter__tag-wrapper">
+                            <div class="filter__tag">Web dev</div>
+                            <div class="filter__tag">UI/UX</div>
+                            <div class="filter__tag">Front End engineer </div>
+
+                        </div>
+                        <button class="add-btn">+</button>
+                    </div>
+
+                </div>
+                <div class="filter-wrapper">
+                    <div class="flex-container">
+
+                        <h6 class="filter__job-title">Job title </h6>
+                        <button class="sideinfo-btn">Clear</button>
+                    </div>
+                    <div class="tag-button-container">
+                        <div class="filter__tag-wrapper">
+                            <div class="filter__tag">Web dev</div>
+                            <div class="filter__tag">UI/UX</div>
+                            <div class="filter__tag">Front End engineer </div>
+
+                        </div>
+                        <button class="add-btn">+</button>
+                    </div>
+
+                </div>
+            </div>
+            <div class="profile-list-wrapper">
+                {% for desc in designer_register %}
+                <div class="profile__card">
+                    <div class="img-wrapper">
+                        <img src= "{{ desc.your_photo.url }}"
+                            alt="use profile image">
+                    </div>
+                    <div class="name-wrapper">
+                        <h3 class="profile__name">{{ desc.full_name }}</h3>
+                        <h4 class="current-post">{{ desc.designer_type }}</h4>
+                        <p class="location"> {{ desc.location }}</p>
+                    </div>
+                    <!-- education -->
+
+                    <h4 class="profile__title s1">About Me:</h4>
+
+                    <p class="profile__val m1">{{ desc.about_you }}</p>
+                    <!-- experience  -->
+                    <h4 class="profile__title s2">Protfolio:</h4>
+
+                    <p class="profile__val m2">{{ desc.portfolio_link }}</p> <br>
+                   <p class="profile__val m3"> <a href="{{ desc.resume.url }}"> View Resume </a></p> 
+                    <!-- <button class="profile__cta e3">View Profile</button> -->
+                    <a href="{% url 'recruiter-profiles' desc.user.pk %}" class="profile__cta e3 text-center"> View Profile</a>
+                </div>
+                {% endfor %}
+                
+            </div>
+        </div>
+        
+    </section>
+</main>
+
+
+
+<div class="" style="background-color: white; margin-top: -20px; padding-top: 10px;  padding-left: 43%;">
+    
+        {% if designer_register.has_previous  %}
+            <a class = 'btn btn-outline-info mb-4' href="?page=1">First</a>
+            <a class = 'btn btn-outline-info mb-4' href="?page={{ designer_register.previous_page_number }}">Previous</a>
+        {% else %}
+            <a class = 'btn btn-outline-info mb-4 disabled' href="#">Previous</a>
+        {% endif %}
+
+        {% for num in designer_register.paginator.page_range %}
+            {% if designer_register.number == num %}
+                <a class = 'btn btn-info mb-4' href="?page={{ num }}">{{ num }}</a>
+            {% elif num > designer_register.number|add:'-3' and num > designer_register.number|add:'3' %}
+                <a class = 'btn btn-outline-info mb-4' href="?page={{ num|add:"3" }}">{{ num|add:"3" }}</a>
+
+            {% endif %}
+        {% endfor %}
+
+        {% if designer_register.has_next  %}
+            <a class = 'btn btn-outline-info mb-4' href="?page={{ designer_register.next_page_number }}">Next</a>
+            <a class = 'btn btn-outline-info mb-4' href="?page={{ designer_register.paginator.num_pages }}">Last</a>
+        {% else %}
+            <a class = 'btn btn-outline-info mb-4 disabled' href="#">Next</a>
+        {% endif %}
+
+
+    
+</div>
+
+{% endblock %}

@@ -1,0 +1,179 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
+     <!-- FontAwesome -->
+     <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+
+     <!-- Tempus Dominus Bootstrap 4 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.1.2/css/tempusdominus-bootstrap-4.min.css" integrity="sha256-XPTBwC3SBoWHSmKasAk01c08M6sIA5gF5+sRxqak2Qs=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.1.2/js/tempusdominus-bootstrap-4.min.js" integrity="sha256-z0oKYg6xiLq3yJGsp/LsY9XykbweQlHl42jHv2XTBz4=" crossorigin="anonymous"></script>
+
+
+     <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'designer/profile.css' %}">
+    <link rel="stylesheet" href="{% static 'designer/styles.css' %}">
+    
+    
+
+
+
+    <title>Ta-Da</title>
+  </head>
+  <body>
+
+    <!-- Navigation bar  -->
+    <nav class="nav">
+      <div class='logo'>
+        <a href='{% url 'home' %}' class=''>Ta-Da
+
+            <svg preserveAspectRatio="xMidYMid meet" data-bbox="5.137 5.637 188.725 188.725" version="1.1"
+                xmlns="http://www.w3.org/2000/svg" viewBox="5.137 5.637 188.725 188.725" role="presentation"
+                aria-hidden="true">
+                <g>
+                    <path class="st0" d="M149.8,80l37.8-37.8c8.3-8.3,8.3-21.9,0-30.3s-21.9-8.3-30.3,0l-37.8,37.8c-8.3,8.3-8.3,21.9,0,30.3
+        S141.4,88.3,149.8,80z"></path>
+                    <path class="st0" d="M49.2,120l-37.8,37.8c-8.3,8.3-8.3,21.9,0,30.3s21.9,8.3,30.3,0l37.8-37.8c8.3-8.3,8.3-21.9,0-30.3
+        S57.6,111.7,49.2,120z"></path>
+                    <path class="st0" d="M149.8,120c-8.3-8.3-21.9-8.3-30.3,0s-8.3,21.9,0,30.3l37.8,37.8c8.3,8.3,21.9,8.3,30.3,0s8.3-21.9,0-30.3
+        L149.8,120z"></path>
+                    <path class="st0" d="M41.7,12c-8.3-8.3-21.9-8.3-30.3,0s-8.3,21.9,0,30.3L49.2,80c8.3,8.3,21.9,8.3,30.3,0s8.3-21.9,0-30.3L41.7,12
+        z"></path>
+                </g>
+            </svg>
+        </a>
+    </div>
+      <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button> -->
+      <div class="nav-items" id="navbarNavDropdown">
+        <ul >
+          <li >
+            <a  href="{% url 'home' %}"><strong>Home</strong></a>
+          </li>
+            
+            <li >
+                <a  href="{% url 'services' %}"><strong>Service Plan</strong></a>
+            </li>
+            {% if user.is_authenticated %}
+              
+            
+              {% if user.is_designer %}
+              
+                      {% if user.is_profile_completed %}
+                        <li >
+                          <a  href="{% url 'designer-profile' %}"><strong>{{user.first_name}} (Designer)</strong></a>
+                        </li>
+                      {% else %}
+                        <li >
+                          <a  href="{% url 'designer-register' %}"><strong>Create Profile</strong></a>
+                        </li>
+                      {% endif %}
+                
+                
+              {% else %}
+
+                <li >
+                  <a  href="{% url 'dashboard' %}"><strong>Dashboard</strong></a>
+                </li>
+
+                {% if user.is_profile_completed %}
+                  <li >
+                    <a  href="{% url 'recruiter_profile' %}"><strong>{{user.first_name}} (Recruiter)</strong></a>
+                  </li>
+                {% else %}
+                  <li >
+                    <a  href="{% url 'recruiter-register' %}"><strong>Create Profile</strong></a>
+                  </li> 
+                {% endif %}
+
+                
+      
+                  
+
+              {% endif %}
+
+              <li >
+                <a  href="{% url 'logout' %}"><strong>Logout</strong></a>
+              </li>
+
+            {% else %}
+              <li >
+                <a  href="{% url 'login' %}"><strong>Login</strong></a>
+              </li> 
+              
+              
+
+            {% endif %}
+
+        </ul>
+     </div>
+    </nav>
+    <header>
+      <!-- nav -->
+      <!-- <nav class='nav'>
+          <div class='logo'>
+              <a href='#' class=''>Ta-Da
+
+                  <svg preserveAspectRatio="xMidYMid meet" data-bbox="5.137 5.637 188.725 188.725" version="1.1"
+                      xmlns="http://www.w3.org/2000/svg" viewBox="5.137 5.637 188.725 188.725" role="presentation"
+                      aria-hidden="true">
+                      <g>
+                          <path class="st0" d="M149.8,80l37.8-37.8c8.3-8.3,8.3-21.9,0-30.3s-21.9-8.3-30.3,0l-37.8,37.8c-8.3,8.3-8.3,21.9,0,30.3
+              S141.4,88.3,149.8,80z"></path>
+                          <path class="st0" d="M49.2,120l-37.8,37.8c-8.3,8.3-8.3,21.9,0,30.3s21.9,8.3,30.3,0l37.8-37.8c8.3-8.3,8.3-21.9,0-30.3
+              S57.6,111.7,49.2,120z"></path>
+                          <path class="st0" d="M149.8,120c-8.3-8.3-21.9-8.3-30.3,0s-8.3,21.9,0,30.3l37.8,37.8c8.3,8.3,21.9,8.3,30.3,0s8.3-21.9,0-30.3
+              L149.8,120z"></path>
+                          <path class="st0" d="M41.7,12c-8.3-8.3-21.9-8.3-30.3,0s-8.3,21.9,0,30.3L49.2,80c8.3,8.3,21.9,8.3,30.3,0s8.3-21.9,0-30.3L41.7,12
+              z"></path>
+                      </g>
+                  </svg>
+              </a>
+          </div>
+          <div class="nav-items">
+              <ul>
+                  <li><a href="#" class="active-link">Home</a></li>
+                  <li><a href="#">Designers</a></li>
+                  <li><a href="#">Recruiter</a></li>
+                  <li><a href="#">Services Plan</a></li>
+              </ul>
+          </div>
+      </nav> -->
+  </header>
+
+    <div class="seperate-nav"></div>
+    
+   {% block content %} 
+
+   {% endblock %}
+
+   
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <section id="footer-section" style="background-color: #0D193E;">
+        <div class="text-center">
+            <h2 class="text-light">Contact us</h2>
+            <i class="fab fa-facebook-f footer-icon"></i>
+            <i class="fab fa-instagram footer-icon"></i>
+            <i class="fab fa-twitter footer-icon"></i>
+            <i class="fas fa-envelope footer-icon"></i>
+            <p class="footer-icon">&copy; Ta-Da 2021</p>
+        </div>
+        
+  
+      </section>
+  
+   
+  </body>
+</html>

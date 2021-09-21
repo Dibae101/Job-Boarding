@@ -1,0 +1,118 @@
+{% extends 'designer/base.html' %}
+
+
+{% block content %}
+    <p></p>
+    <p></p>
+    <!-- <div class="seperate-nav"></div> -->
+    <div class="profile-box">
+    <div class="profile-container">
+        {% include 'includes/alerts.html' %}
+        
+        
+
+    <div class="profile-container">
+        <div class="row profile-row bg-light">
+            
+            <div class="col profile-text">
+                <h1 class="text-dark profile-heading">{{ project.project_name|capfirst }}</h1>
+                <p style="opacity: 0;">Hello</p>
+                <p>{{ project.project_description }}</p>
+                <p style="opacity: 0;">Hello</p>
+                <p>Project link: <a href="{{project.project_link}}">{{project.project_link}}</a> </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="profile-container ">
+        <div class="row profile-row bg-light">
+            
+            <div class="col profile-text">
+                <h1 class="text-dark profile-heading">Problem I am solving: </h1>
+                <p style="opacity: 0;">Hello</p>
+                <p>{{ project.problem }}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="profile-container ">
+        <div class="row profile-row bg-light">
+            
+            <div class="col profile-text">
+                <h1 class="text-dark profile-heading">Scope of Project: </h1>
+                <p style="opacity: 0;">Hello</p>
+                <p>{{ project.scope }}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="profile-container ">
+        <div class="row profile-row bg-light">
+            
+            <div class="col profile-text">
+                <h1 class="text-dark profile-heading">Target Audience: </h1>
+                <p style="opacity: 0;">Hello</p>
+                <p>{{ project.audience }}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="profile-container ">
+        <div class="row profile-row bg-light">
+            
+            <div class="col profile-text">
+                <h1 class="text-dark profile-heading">Initial idea for Problem: </h1>
+                <p style="opacity: 0;">Hello</p>
+                <p>{{ project.ideation }}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="profile-container ">
+        <div class="row profile-row bg-light">
+            
+            <div class="col profile-text">
+                <h1 class="text-dark profile-heading">Competitors: </h1>
+                <p style="opacity: 0;">Hello</p>
+                <p>{{ project.competitors }}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="profile-container ">
+        <div class="row profile-row bg-light">
+            
+            <div class="col profile-text">
+                <h1 class="text-dark profile-heading">Challenges: </h1>
+                <p style="opacity: 0;">Hello</p>
+                <p>{{ project.challenges }}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="profile-container ">
+        <div class="row profile-row bg-light">
+            
+            <div class="col profile-text">
+                <h1 class="text-dark profile-heading">More details: </h1>
+                <p style="opacity: 0;">Hello</p>
+                <p class="exp__skill-tag">Project Type:
+                    {{ project.projecttagsmodel.project_type }}
+                </p>
+                <p class="exp__skill-tag">Platform Used:
+                    {{ project.projecttagsmodel.platform_used }}
+                </p>
+                <p class="exp__skill-tag">Project Stage:
+                    {{ project.projecttagsmodel.project_stage }}
+                </p>
+                <p class="exp__skill-tag">People Collab With:
+                    {{ project.projecttagsmodel.people_collab_with }}
+                </p>
+            </div>
+        </div>
+    </div>
+    
+</div>
+    
+
+{% endblock %}

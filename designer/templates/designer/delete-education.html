@@ -1,0 +1,19 @@
+{% extends 'designer/base.html' %}
+
+{% block content %}
+
+<div class="profile-box">
+    <div class="delete-container text-center">
+        <form method="POST" action="{% url 'designer-experience-delete' education.pk %}">
+            {% csrf_token %}
+            <h3>Are you sure you want to delete {{ education.education_title}} ?</h3>
+            <button class="btn btn-outline-danger" type="submit">Confirm</button>
+            <a class="btn btn-outline-primary" href="{% url 'designer-profile' %}">Cancel</a>
+            
+        </form>
+        
+    </div>
+</div>
+    
+    
+{% endblock %}

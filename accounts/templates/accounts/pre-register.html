@@ -1,0 +1,44 @@
+{% extends 'designer/base.html' %}
+
+{% load static %}
+{% block content %}
+    <div class="container my-5 py-5">
+        <div class="row">
+            
+                <div class="col-5 offset-1">
+                    <div class="row" >
+                        <img class="rounded  w-100" src="https://www.elegantthemes.com/blog/wp-content/uploads/2019/08/gravit-designer-review-featured-iamge.jpg" alt="" >
+                   
+                    </div>
+                    <p></p>
+                    <div class="row">
+                        <div class="col offset-3">
+                            <form action="{% url 'register' %}" method="GET">
+                            <button  type="submit" class="btn btn-primary btn-block " name="candidate" value="designer">I am a Designer</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- <p></p> -->
+                <div class="col-5">
+                    <div class="row">
+                        <img class="rounded w-100" src="https://www.otys.com/_images_upload/YEdCtedTx7avVkEA.jpg" alt="">
+                    </div>
+                
+                    <p></p>
+                    <div class="row">
+                        <div class="col offset-3">
+                            <form action="{% url 'register' %}" method="GET">
+                            <button type="submit" class="btn btn-primary btn-block" name="candidate" value="recruiter">I am a Recruiter</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            
+                
+        </div>
+    </div>
+{% endblock %}
+
+
+

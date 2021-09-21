@@ -1,0 +1,128 @@
+{% extends 'designer/base.html' %}
+{% load static %}
+{% block content %}
+  <!-- hero -->
+  <section class='hero' style="margin-top: 0px;">
+    <div class="hero__text-container">
+      <div class="hero__content">
+        <div class="text-light">
+          {% include 'includes/alerts.html' %}
+        </div>
+        <h1 class="title">The smartest way for designers and recruiters to connect for opportunities</h1>
+        <h3 class="sub-title">
+          Ta-Da is the world's first job-seeking platform built entirely for designers
+        </h3>
+        <div class='hero__image'>
+          <img src="{% static '/images/hero.webp' %}" alt="hero pic">
+          <link rel="stylesheet" href="{% static '/css/style.css' %}">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about">
+    <div class="about__card">
+      <div class="about__svg">
+        <svg preserveAspectRatio="xMidYMid meet" data-bbox="5.137 5.637 188.725 188.725" version="1.1"
+          xmlns="http://www.w3.org/2000/svg" viewBox="5.137 5.637 188.725 188.725" role="presentation"
+          aria-hidden="true">
+          <g>
+            <path class="st0" d="M149.8,80l37.8-37.8c8.3-8.3,8.3-21.9,0-30.3s-21.9-8.3-30.3,0l-37.8,37.8c-8.3,8.3-8.3,21.9,0,30.3
+          S141.4,88.3,149.8,80z"></path>
+            <path class="st0" d="M49.2,120l-37.8,37.8c-8.3,8.3-8.3,21.9,0,30.3s21.9,8.3,30.3,0l37.8-37.8c8.3-8.3,8.3-21.9,0-30.3
+          S57.6,111.7,49.2,120z"></path>
+            <path class="st0" d="M149.8,120c-8.3-8.3-21.9-8.3-30.3,0s-8.3,21.9,0,30.3l37.8,37.8c8.3,8.3,21.9,8.3,30.3,0s8.3-21.9,0-30.3
+          L149.8,120z"></path>
+            <path class="st0" d="M41.7,12c-8.3-8.3-21.9-8.3-30.3,0s-8.3,21.9,0,30.3L49.2,80c8.3,8.3,21.9,8.3,30.3,0s8.3-21.9,0-30.3L41.7,12
+          z"></path>
+          </g>
+        </svg>
+      </div>
+      <h2 class="about__title">Our Products</h2>
+      <p class="about__desc">Ta-Da is built to allow all types of designers to have a platform to best represent
+        themselves in a way that highlight their careers in the best light possible. It combines resumes and portfolio
+        in a seamless way.</p>
+    </div>
+    <div class="about__card">
+      <div class="about__svg">
+        <svg preserveAspectRatio="xMidYMid meet" data-bbox="5.137 5.637 188.725 188.725" version="1.1"
+          xmlns="http://www.w3.org/2000/svg" viewBox="5.137 5.637 188.725 188.725" role="presentation"
+          aria-hidden="true">
+          <g>
+            <path class="st0" d="M149.8,80l37.8-37.8c8.3-8.3,8.3-21.9,0-30.3s-21.9-8.3-30.3,0l-37.8,37.8c-8.3,8.3-8.3,21.9,0,30.3
+          S141.4,88.3,149.8,80z"></path>
+            <path class="st0" d="M49.2,120l-37.8,37.8c-8.3,8.3-8.3,21.9,0,30.3s21.9,8.3,30.3,0l37.8-37.8c8.3-8.3,8.3-21.9,0-30.3
+          S57.6,111.7,49.2,120z"></path>
+            <path class="st0" d="M149.8,120c-8.3-8.3-21.9-8.3-30.3,0s-8.3,21.9,0,30.3l37.8,37.8c8.3,8.3,21.9,8.3,30.3,0s8.3-21.9,0-30.3
+          L149.8,120z"></path>
+            <path class="st0" d="M41.7,12c-8.3-8.3-21.9-8.3-30.3,0s-8.3,21.9,0,30.3L49.2,80c8.3,8.3,21.9,8.3,30.3,0s8.3-21.9,0-30.3L41.7,12
+          z"></path>
+          </g>
+        </svg>
+      </div>
+      <h2 class="about__title">Our Vision</h2>
+      <p class="about__desc">Our team is excited to build the next leading job-seeking platform that allows all type
+        of designers to get matched with the right hiring managers and recruiters.</p>
+    </div>
+    <div class="about__card">
+      <div class="about__svg">
+        <svg preserveAspectRatio="xMidYMid meet" data-bbox="5.137 5.637 188.725 188.725" version="1.1"
+          xmlns="http://www.w3.org/2000/svg" viewBox="5.137 5.637 188.725 188.725" role="presentation"
+          aria-hidden="true">
+          <g>
+            <path class="st0" d="M149.8,80l37.8-37.8c8.3-8.3,8.3-21.9,0-30.3s-21.9-8.3-30.3,0l-37.8,37.8c-8.3,8.3-8.3,21.9,0,30.3
+          S141.4,88.3,149.8,80z"></path>
+            <path class="st0" d="M49.2,120l-37.8,37.8c-8.3,8.3-8.3,21.9,0,30.3s21.9,8.3,30.3,0l37.8-37.8c8.3-8.3,8.3-21.9,0-30.3
+          S57.6,111.7,49.2,120z"></path>
+            <path class="st0" d="M149.8,120c-8.3-8.3-21.9-8.3-30.3,0s-8.3,21.9,0,30.3l37.8,37.8c8.3,8.3,21.9,8.3,30.3,0s8.3-21.9,0-30.3
+          L149.8,120z"></path>
+            <path class="st0" d="M41.7,12c-8.3-8.3-21.9-8.3-30.3,0s-8.3,21.9,0,30.3L49.2,80c8.3,8.3,21.9,8.3,30.3,0s8.3-21.9,0-30.3L41.7,12
+          z"></path>
+          </g>
+        </svg>
+      </div>
+      <h2 class="about__title">Technology</h2>
+      <p class="about__desc">We use smart tagging system that allow designers to be able to tag every detail of their
+        experience. Those tags will feed into the machine learning technology that will accurately match designers
+        with the right recruiters.</p>
+    </div>
+  </section>
+</main>
+
+<section class="work-info">
+
+  <h2 class="work__title">How it works</h2>
+  <div class="work__card">
+    <div class="work__image-wrapper col1">
+      <img src="{% static '/images/how-it-works-1.webp' %}" alt="">
+    </div>
+    <div class="work__text-wrapper col2">
+      <h2 class="work__card__title">Smart tagging</h2>
+      <p class="work__card__desc">I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click
+        “Edit Text” or double click me to add your own content and make changes to the font. I’m a great place for you
+        to tell a story and let your users know a little more about you.</p>
+    </div>
+  </div>
+  <div class="work__card">
+    <div class="work__image-wrapper col2">
+      <img src="{% static '/images/how-it-works-2.webp' %}" alt="">
+    </div>
+    <div class="work__text-wrapper col1">
+      <h2 class="work__card__title">Keyword matching </h2>
+      <p class="work__card__desc">I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click
+        “Edit Text” or double click me to add your own content and make changes to the font. I’m a great place for you
+        to tell a story and let your users know a little more about you.</p>
+    </div>
+  </div>
+</section>
+
+
+<section class="carousel">
+
+
+</section>
+<section class="ad-banner">
+
+</section>
+
+{% endblock %}

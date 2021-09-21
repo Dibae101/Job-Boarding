@@ -1,0 +1,30 @@
+
+# Created by https://www.toptal.com/developers/gitignore/api/django
+# Edit at https://www.toptal.com/developers/gitignore?templates=django
+
+### Django ###
+*.log
+*.pot
+*.pyc
+.DS_Store
+.mypy_cache/
+__pycache__
+*/__pycache__/
+local_settings.py
+db.sqlite3
+
+accounts/migrations/
+accounts/__pycache__/
+
+designer/__pycache__/
+designer/migrations
+
+jobboarding/__pycache__/
+jobboarding/migrations/
+
+recruiter/__pycache__/
+recruiter/migrations/
+
+media
+
+

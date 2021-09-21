@@ -1,0 +1,187 @@
+{% extends 'designer/base.html' %}
+{% block content %}
+    <!-- profile -->
+    <main class='profile-main' style="background-color: white">
+        <div class="cover-img">
+
+        </div>
+        <section class="profile-info">
+            <div class="">
+                <div class="profile-img-wrapper">
+                    <img src="{{ user.designerregister.your_photo.url }}"
+                        alt="profile image">
+                </div>
+
+                <div class="info-wrapper">
+                    <div class="text-wrapper">
+                        <h2 class="profile-name">{{ user.designerregister.full_name|capfirst }}</h2>
+
+                        <h4 class="post">{{ user.designerregister.current_status }}</h4>
+
+                        <h5 class="experience">{{user.designerregister.location}} • {{user.designerregister.years_of_experience}}+ years of experience</h5>
+                        <p class="bio">{{user.designerregister.bio}}</p>
+
+                        <div class="button-wrapper">
+                            <a href="mailto:{{ user.email }}" class="btn cta-fill">Contact me </a>
+                            <a href="{% url 'designer-profile-update' %}" class="btn cta-outline">Edit profile</a>
+                            <div class="my-3 ">
+                                <a href="{% url 'recruiter-profiles'  user.pk %}" class="btn cta-outline"><i class="fas fa-eye"></i>  Recruiter View</a>
+                            </div>
+                            
+                            <ul class="icons-wrapper mx-2">
+                                <li><a href="{{ user.designerregister.facebook }}"><i class="fab fa-facebook fa-2x"></i></a></li>
+                                <li><a href="{{ user.designerregister.twitter }}"><i class="fab fa-twitter fa-2x"></i></a></li>
+                                <li><a href="{{ user.designerregister.linkedin }}"><i class="fab fa-linkedin fa-2x"></i></a></li>
+                                <li><a href="{{ user.designerregister.instagram }}"><i class="fab fa-instagram fa-2x"></i></a></li>
+                            </ul>
+                        </div>
+                        
+                    </div>
+                    <div class="tags-wrapper">
+
+                        <h3 class="title">Top skills</h3>
+                        <div class="tag-wrapper">
+                            {% for skill in top_skills %}
+                                <div class="cta-outline">{{skill}}</div>
+                            {% endfor %}
+                        </div>
+                        <h3 class="title">Has Experience in </h3>
+                        <div class="tag-wrapper">
+                            {% for experience in user_experiences %}
+                                <div class="cta-outline">{{experience}}</div>
+                            {% endfor %}
+                        </div>
+                        <h3 class="title">Tools of choice</h3>
+                        <div class="tag-wrapper">
+                            {% for tool in tools_of_choice %}
+                                <div class="cta-outline">{{tool}}</div>
+                            {% endfor %}
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="profile-exp">
+            <div class="exp__wrapper">
+                <h2 class="exp__title">
+                    {{user.first_name|capfirst}}'s Experience
+                </h2>
+                {% for experience in experiences %}
+                <form action="{% url 'designer-experience-update' experience.pk %}">
+                {% csrf_token %}
+                <div class="exp__card-wrapper">
+                    <h6 class="date">{{experience.date_from}} - {{experience.date_to}}</h6>
+                    <h4 class="post">{{experience.work_title}} 
+                    </h4>
+                    <h6 class="location">{{experience.location}}</h6>
+                    <p class="description">{{experience.work_description}}</p>
+                    <h5 class="exp__skill-tag">Skills:
+                        <span class="exp__skill-val">{{ experience.skills }}</span>
+                    </h5>
+                    <h5 class="exp__skill-tag">Tools Used:
+                        <span class="exp__skill-val">{{ experience.tools_used }}</span>
+                    </h5>
+                    <p style="opacity: 0;">Hello</p>
+                    <button class="btn btn-outline-primary" type="submit">Edit me</button>
+                    <a class="btn btn-outline-danger" href="{% url 'designer-experience-delete' experience.pk %}">Delete me</a>
+                </div>
+                
+                </form>
+                {% endfor %}
+
+
+                
+                <div class="exp__card-wrapper text-center">
+                    
+                    <a class="text-info"  href="{% url 'designer-experience' %}"><i class="fas fa-plus fa-10x"></i></a>
+                </div>
+
+
+                <h2 class="exp__title">
+                    {{user.first_name|capfirst}}'s Education
+                </h2>
+
+                {% for education in educations %}
+                <form action="{% url 'designer-education-update' education.pk %}">
+                <div class="exp__card-wrapper">
+                    <h6 class="date">{{education.date_from}} - {{education.date_to}}</h6>
+                    <h4 class="post">{{education.education_title}}
+                    </h4>
+                    <h6 class="location">{{education.location_of_instution}}</h6>
+                    <p class="description">{{education.description}}</p>
+                    <h5 class="exp__skill-tag">Grade:
+                        <span class="exp__skill-val">{{education.grade}}</span>
+                    </h5>
+                    <p style="opacity: 0;">Hello</p>
+                    <button class="btn btn-outline-primary" type="submit">Edit me</button>
+                    <a class="btn btn-outline-danger" href="{% url 'designer-education-delete' education.pk %}">Delete me</a>
+                </form>
+                </div>
+                {% endfor %}
+
+                <div class="exp__card-wrapper text-center">
+                    
+                    <a class="text-info"  href="{% url 'designer-education' %}"><i class="fas fa-plus fa-10x"></i></a>
+                </div>
+
+
+                <h2 class="exp__title">
+                    {{user.first_name|capfirst}}'s Projects
+                </h2>
+
+                {% for project in projects %}
+                <form action="{% url 'designer-project-update' project.pk %}">
+                <div class="exp__card-wrapper">
+                    <h6 class="date">Project Stage: {{ project.projecttagsmodel.project_stage }}</h6>
+                    <h4 style="margin-bottom: 8px;" class="post">{{project.project_name|capfirst}}
+                    </h4>
+                    <h6 class="date">A {{ project.projecttagsmodel.platform_used }} based project</h6>
+                    
+                    <!-- <h6 class="location">{{project.projecttagsmodel.project_type}}</h6> -->
+                    <p class="description">{{project.project_description}}</p>
+                    <h5 class="exp__skill-tag">Project Type:
+                        {{ project.projecttagsmodel.project_type }}
+                    </h5>
+                    <h5 class="exp__skill-tag">People Collab With:
+                        {{ project.projecttagsmodel.people_collab_with }}
+                    </h5>
+                    <p style="opacity: 0;">Hello</p>
+                    <button class="btn btn-outline-primary" type="submit">Edit me</button>
+                    <a class="btn btn-outline-danger" href="{% url 'designer-project-delete' project.pk %}">Delete me</a>
+                    
+                    <a class="btn btn-outline-primary" href="{% url 'designer-project-detail' project.pk %}">View Details</a>
+                    
+                </div>
+
+                </form>
+                {% endfor %}
+
+                <div class="exp__card-wrapper text-center">
+                    
+                    <a class="text-info"  href="{% url 'project-description' %}"><i class="fas fa-plus fa-10x"></i></a>
+                </div>
+
+                
+            </div>
+        </section>
+
+        <section class="profile-contact">
+
+            <div class="contact-wrapper">
+
+                <h3 class="title">Contact me for opportunities</h3>
+
+                <div class="contact__info-wrapper">
+                    <span class="span-title">I'm always looking for new and exciting opportunities.</span>
+                    <a href="{{ user.designerregister.portfolio }}">{{ user.designerregister.portfolio }}</a>
+                    <span class="span-title">Let's connect.</span>
+
+                    <a href="mailto:{{ user.email }}">Email: {{ user.email }}
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+ {% endblock %}
